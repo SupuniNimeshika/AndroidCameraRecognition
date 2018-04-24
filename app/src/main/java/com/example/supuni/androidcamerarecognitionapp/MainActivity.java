@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextRecognizer textRecognizer =new TextRecognizer.Builder(getApplicationContext()).build();
         if(!textRecognizer.isOperational()){
-            Log.d("MainActivity","Detector dependencies are not yet available");
+            Log.w("MainActivity", "Detector dependencies are not yet available");
         }
         else {
             cameraSource =new CameraSource.Builder(getApplicationContext(),textRecognizer)
